@@ -5,7 +5,8 @@ exercise.countRecords = function(data){
     // YOUR CODE
     // Return the total number of records
     //-------------------------------------------
-    return 'Error: countRecords not implemented'; 
+
+    return data.length; //'Error: countRecords not implemented'; 
 };
 
 exercise.countDistrictCrimes = function(data,district){
@@ -14,7 +15,30 @@ exercise.countDistrictCrimes = function(data,district){
     // Return the number of crimes 
     // for the given district
     //-------------------------------------------
-    return 'Error: countDistrictCrimes not implemented'; 
+
+    //district info at index 19
+
+    /*
+    var num_crimes = data.reduce(function(previous, current) {	 
+        if(current[19] === district){
+            return previous++;
+        }
+        else 
+            return previous;
+    }, 0); 
+    //better way to do this? 
+    //previous is alawys being returned vs just returning the last count
+
+    return num_crimes; //'Error: countDistrictCrimes not implemented'; 
+
+    */
+    //--------------------------------------------
+
+    var filtered = data.filter(function(element) {
+        return (element[19] === district);  
+    });
+
+    return filtered.length;
 };
 
 exercise.countPrimaryType = function(data,primaryType){
@@ -23,7 +47,28 @@ exercise.countPrimaryType = function(data,primaryType){
     // Return the number of crimes 
     // for the giving primary type
     //-------------------------------------------
-    return 'Error: countPrimaryType not implemented';
+
+    //primary type info at index 13
+
+    /*
+    var num_crimes = data.reduce(function(previous, current) {	 
+        if(current[13] === primaryType){
+            return previous++;
+        }
+        else 
+            return previous;
+    }, 0); 
+
+    return num_crimes; //'Error: countPrimaryType not implemented';
+
+    */
+    //--------------------------------------------
+    
+    var filtered = data.filter(function(element) {
+        return (element[13] === primaryType);  
+    });
+
+    return filtered.length;    
 };
 
 exercise.countLocation = function(data,location){
@@ -32,7 +77,28 @@ exercise.countLocation = function(data,location){
     // Return the number of crimes 
     // for the given location
     //-------------------------------------------
-    return 'Error: countLocation not implemented';
+
+    //location info at index 15
+
+    /*
+    var num_crimes = data.reduce(function(previous, current) {	 
+        if(current[15] === location){
+            return previous++;
+        }
+        else 
+            return previous;
+    }, 0); 
+
+    return num_crimes; //'Error: countLocation not implemented';
+
+    */
+    //--------------------------------------------
+    
+    var filtered = data.filter(function(element) {
+        return (element[15] === location);  
+    });
+
+    return filtered.length;
 };
 
 
@@ -48,7 +114,12 @@ exercise.buildLatLngPoint = function(crime){
     // point.longitude = crime[longitudeColumnNumber];
     // return point;    
     //-------------------------------------------    
-    return 'Error: buildLatLngPoint not implemented';
+
+    var point = {};    
+    point.latitude = crime[29][1];
+    point.longitude = crime[29][2];
+
+    return point; //'Error: buildLatLngPoint not implemented';
 };
 
 
